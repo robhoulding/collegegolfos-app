@@ -40,9 +40,9 @@ function SignInForm() {
         Sign in
       </h1>
       <p className="mt-3 text-text-mid">
-        Use the same email juniors invite you with. This creates your
-        CollegeGolfOS coach workspace and unlocks inbox, board, and shared
-        player records.
+        Use the same email juniors invite you with. This opens your CollegeGolfOS
+        Coach Workspace — Today’s Briefing, Team, Recruiting, and shared player
+        records.
       </p>
 
       <form onSubmit={onSubmit} className="card-surface mt-8 space-y-4 p-6">

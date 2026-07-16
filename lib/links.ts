@@ -9,10 +9,21 @@ export const LINKS = {
   programs: "/programs",
   signIn: "/sign-in",
   app: "/app",
-  appInbox: "/app/inbox",
-  appBoard: "/app/board",
-  appRoster: "/app/roster",
+  appBriefing: "/app",
+  appTeam: "/app/team",
+  appProgram: "/app/program",
+  appRecruiting: "/app/recruiting",
+  appPlayerSelection: "/app/player-selection",
+  appFindPlayers: "/app/find-players",
+  appReverseSearch: "/app/reverse-search",
+  appSchedule: "/app/schedule",
+  appCommunication: "/app/communication",
+  appTrends: "/app/trends",
   appSettings: "/app/settings",
+  /** Legacy aliases */
+  appInbox: "/app/communication",
+  appBoard: "/app/recruiting",
+  appRoster: "/app/team",
   golfCoachOs: externalUrl(
     process.env.NEXT_PUBLIC_GOLFCOACHOS_URL,
     "https://www.golfcoachos.com",
@@ -24,6 +35,14 @@ export const LINKS = {
   academyOs: externalUrl(
     process.env.NEXT_PUBLIC_GOLFACADEMYOS_URL,
     "https://www.golfacademyos.com",
+  ),
+  varsityGolfOs: externalUrl(
+    process.env.NEXT_PUBLIC_VARSITYGOLFOS_URL,
+    "https://www.varsitygolfos.com",
+  ),
+  collegeGolfOs: externalUrl(
+    process.env.NEXT_PUBLIC_COLLEGEGOLFOS_URL,
+    "https://www.collegegolfos.com",
   ),
   /** Shared API — same backend as GolfCoachOS when wired up. */
   apiBase: externalUrl(

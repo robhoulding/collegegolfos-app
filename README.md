@@ -3,7 +3,7 @@
 College coach recruiting hub for the **GolfCoachOS ecosystem**.
 
 - **Domain:** [collegegolfos.com](https://collegegolfos.com)
-- **Sibling sites:** [GolfCoachOS](https://golfcoachos.com) · JuniorGolfOS · GolfAcademyOS
+- **Sibling sites:** [GolfCoachOS](https://golfcoachos.com) · JuniorGolfOS · GolfAcademyOS · [VarsityGolfOS](https://www.varsitygolfos.com) · CollegeGolfOS
 - **API (shared):** `golfcoachos-api` on Vercel
 
 ## Status

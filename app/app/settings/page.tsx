@@ -58,11 +58,11 @@ export default function SettingsPage() {
     <div className="space-y-6">
       <header>
         <h1 className="font-display text-3xl font-bold text-white">
-          Program affiliation
+          Settings
         </h1>
         <p className="mt-2 max-w-2xl text-text-mid">
-          Link this coach account to a GolfProgram id from the directory. Full
-          verification workflow comes next — this shell stores the affiliation.
+          Coach profile and program affiliation. Verification workflow expands
+          next — this shell stores the link used across Team and Program.
         </p>
       </header>
 

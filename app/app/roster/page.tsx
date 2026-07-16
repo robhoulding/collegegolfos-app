@@ -10,8 +10,9 @@ import {
 } from "@/lib/college-coach-client";
 
 /**
- * College "roster" shell = recruiting pipeline players (active stages)
- * plus program affiliation context. Not the junior-coach GolfCoachOS roster.
+ * IMPORTANT: This page is NOT the college program’s current team roster.
+ * It lists active recruiting-pipeline prospects only.
+ * Current team / signed / transfer lifecycle is a required next schema step.
  */
 export default function RosterPage() {
   const [me, setMe] = useState<CollegeCoachMe | null>(null);
@@ -45,12 +46,31 @@ export default function RosterPage() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="font-display text-3xl font-bold text-white">Roster</h1>
+        <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-300">
+          Temporary shell view
+        </p>
+        <h1 className="mt-1 font-display text-3xl font-bold text-white">
+          Recruiting pipeline list
+        </h1>
         <p className="mt-2 max-w-2xl text-text-mid">
-          Active recruiting roster for this college coach account. Built from
-          shared player records already on your board — not a separate database.
+          Active board prospects only — not your current college team roster.
+          Prospects on the board are not treated as signed or active roster
+          athletes. A separate program roster lifecycle is required before Team
+          Intelligence.
         </p>
       </header>
+
+      <section className="card-surface space-y-2 border-amber-400/20 p-5 text-sm text-text-mid">
+        <h2 className="text-xs font-bold uppercase tracking-[0.12em] text-amber-300">
+          Required next data model
+        </h2>
+        <p>
+          Distinguish at minimum: recruit → committed → signed → incoming →
+          active roster → redshirt/inactive → graduated / transferred /
+          departed. Do not expand Player Selection or Team Intelligence until
+          that separation exists.
+        </p>
+      </section>
 
       {error ? (
         <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-100">
@@ -60,7 +80,7 @@ export default function RosterPage() {
 
       <section className="card-surface p-5">
         <h2 className="text-xs font-bold uppercase tracking-[0.12em] text-text-low">
-          Program context
+          Program affiliation context
         </h2>
         {loading ? (
           <p className="mt-2 text-sm text-text-mid">Loading…</p>
@@ -82,19 +102,19 @@ export default function RosterPage() {
 
       {loading ? null : cards.length === 0 ? (
         <div className="card-surface p-6 text-sm text-text-mid">
-          Roster is empty. Accept invites and keep players on active board stages
-          to populate this list.
+          No active pipeline prospects. Accept invites from the inbox and keep
+          players on non-archived board stages to populate this list.
         </div>
       ) : (
         <div className="overflow-x-auto rounded-2xl border border-white/10">
           <table className="min-w-full text-left text-sm">
             <thead className="bg-white/[0.03] text-xs uppercase tracking-wide text-text-low">
               <tr>
-                <th className="px-4 py-3 font-semibold">Player</th>
-                <th className="px-4 py-3 font-semibold">Stage</th>
+                <th className="px-4 py-3 font-semibold">Prospect</th>
+                <th className="px-4 py-3 font-semibold">Pipeline stage</th>
                 <th className="px-4 py-3 font-semibold">Grad</th>
                 <th className="px-4 py-3 font-semibold">H.I.</th>
-                <th className="px-4 py-3 font-semibold">Record</th>
+                <th className="px-4 py-3 font-semibold">Shared record</th>
               </tr>
             </thead>
             <tbody>

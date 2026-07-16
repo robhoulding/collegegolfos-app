@@ -68,7 +68,9 @@ export async function POST(request: Request) {
       {
         httpOnly: true,
         sameSite: "lax",
-        secure: process.env.NODE_ENV === "production",
+        secure:
+          process.env.NODE_ENV === "production" ||
+          process.env.VERCEL === "1",
         path: "/",
         maxAge: 60 * 60 * 24 * 30,
       },
@@ -92,7 +94,8 @@ export async function DELETE() {
   response.cookies.set(COLLEGE_COACH_SESSION_COOKIE, "", {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure:
+      process.env.NODE_ENV === "production" || process.env.VERCEL === "1",
     path: "/",
     maxAge: 0,
   });

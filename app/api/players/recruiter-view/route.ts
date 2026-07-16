@@ -7,7 +7,10 @@ import { getCollegeCoachSession } from "@/lib/college-coach-session";
 
 export const dynamic = "force-dynamic";
 
-/** Proxy shared-player recruiter view for signed-in college coaches. */
+/**
+ * Proxy redacted shared-player view (college-safe).
+ * Requires signed-in college coach; upstream enforces email match + token.
+ */
 export async function GET(request: Request) {
   const session = await getCollegeCoachSession();
   if (!session) {
@@ -20,27 +23,9 @@ export async function GET(request: Request) {
   }
 
   const upstream = await collegeCoachApiFetch(
-    `/api/players/recruiter-view?token=${encodeURIComponent(token)}`,
+    `/api/college/coaches/player-view?coach_id=${encodeURIComponent(session.coachId)}&token=${encodeURIComponent(token)}`,
     { session },
   );
   const { data, status } = await readUpstreamJson(upstream);
-
-  // Permission: invite must be addressed to this coach email when present.
-  const payload = data as {
-    access?: { coach_email?: string };
-    error?: string;
-  };
-  const inviteEmail = payload.access?.coach_email?.trim().toLowerCase();
-  if (
-    upstream.ok &&
-    inviteEmail &&
-    inviteEmail !== session.email.toLowerCase()
-  ) {
-    return NextResponse.json(
-      { error: "This invite is addressed to a different coach email." },
-      { status: 403 },
-    );
-  }
-
   return NextResponse.json(data, { status });
 }

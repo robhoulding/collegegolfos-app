@@ -7,10 +7,10 @@ import { LINKS } from "@/lib/links";
 
 const NAV: { href: string; label: string; exact?: boolean }[] = [
   { href: "/app", label: "Overview", exact: true },
-  { href: "/app/inbox", label: "Invite inbox" },
-  { href: "/app/board", label: "Recruiting board" },
-  { href: "/app/roster", label: "Roster" },
-  { href: "/app/settings", label: "Program" },
+  { href: "/app/inbox", label: "Inbox" },
+  { href: "/app/board", label: "Recruiting Board" },
+  { href: "/app/roster", label: "Pipeline list" },
+  { href: "/app/settings", label: "Settings" },
   { href: LINKS.programs, label: "Program search" },
 ];
 

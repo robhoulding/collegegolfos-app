@@ -12,17 +12,24 @@ Applies to: JuniorGolfOS · GolfCoachOS · GolfAcademyOS · VarsityGolfOS · Col
 
 ## Canonical nav order
 
+Target CollegeGolfOS order after Team Practice lands (see [`BUILD_INSTRUCTIONS.md`](./BUILD_INSTRUCTIONS.md) and [`build-prompts/02-TEAM_PRACTICE.md`](./build-prompts/02-TEAM_PRACTICE.md)):
+
 | Slot | CollegeGolfOS | GolfCoachOS (analogy) |
 |------|---------------|------------------------|
 | 1 | Today's Briefing | Coach / Director Briefing |
 | 2 | Team | Players / Roster |
-| 3 | Recruiting | (academy Business / pipeline) |
+| 3 | Team Practice | Practice / assignments |
 | 4 | Player Selection | Competition decisions |
-| 5 | Find Players | Library / discovery |
-| 6 | Schedule | Calendar |
-| 7 | Communication | Messages |
-| 8 | Trends | Trends |
-| 9 | Settings | Settings |
+| 5 | Tournaments | Competition / events |
+| 6 | Recruiting | (academy Business / pipeline) |
+| 7 | Find Players | Library / discovery |
+| 8 | Development | Four Pillars / player development |
+| 9 | Communication | Messages |
+| 10 | Trends | Trends |
+| 11 | Program | Academy / program settings |
+| 12 | Settings | Settings |
+
+Team Practice is a primary operating area — not buried under Development.
 
 ## Tokens
 

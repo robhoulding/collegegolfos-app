@@ -34,6 +34,14 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Requires `BASE44_SHARED_SECRET` in `.env.local` (same value as golfcoachos-api).
 
+## Build instructions
+
+Product/build prompts for the next Coach Workspace phases live in:
+
+- [`docs/BUILD_INSTRUCTIONS.md`](./docs/BUILD_INSTRUCTIONS.md) — index and non-negotiables
+- [`docs/build-prompts/02-TEAM_PRACTICE.md`](./docs/build-prompts/02-TEAM_PRACTICE.md) — Team Practice, workouts, individual development
+- [`docs/build-prompts/03-NUTRITION_READINESS.md`](./docs/build-prompts/03-NUTRITION_READINESS.md) — Nutrition Readiness™ (shared Physical Pillar module)
+
 ## Architecture rules
 
 1. **One shared player record** — `PlayerProfile` in golfcoachos-api (no CollegeGolfOS player DB).

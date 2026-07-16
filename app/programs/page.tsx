@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ProgramCard } from "@/components/ProgramCard";
-import { ProgramSearchForm } from "@/components/ProgramSearchForm";
+import { ProgramSearchForm, type ProgramSearchParams } from "@/components/ProgramSearchForm";
 import { searchCollegePrograms } from "@/lib/college-api-server";
 
 export const metadata = {
@@ -20,17 +20,27 @@ function pickParam(
 
 export default async function ProgramsPage({ searchParams }: PageProps) {
   const params = await searchParams;
-  const filters = {
+  const filters: ProgramSearchParams = {
     q: pickParam(params.q),
     gender: pickParam(params.gender),
     association: pickParam(params.association),
     division: pickParam(params.division),
     state: pickParam(params.state),
     athletic_data_tier: pickParam(params.athletic_data_tier),
-    limit: 50,
+    major: pickParam(params.major),
+    public_private: pickParam(params.public_private),
+    max_net_cost: pickParam(params.max_net_cost),
+    match_priority: pickParam(params.match_priority),
+    campus_vibe: pickParam(params.campus_vibe),
   };
 
-  const result = await searchCollegePrograms(filters);
+  const result = await searchCollegePrograms({
+    ...filters,
+    max_net_cost: filters.max_net_cost
+      ? Number(filters.max_net_cost)
+      : undefined,
+    limit: 50,
+  });
 
   return (
     <main className="mx-auto max-w-6xl px-5 py-12 md:px-8">
@@ -41,14 +51,25 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
         College golf program search
       </h1>
       <p className="mt-3 max-w-2xl text-text-mid">
-        Searching the GolfCoachOS college directory via{" "}
-        <code className="text-emerald-400">/api/college/programs/search</code>.
-        Match scores come in a later phase — this confirms data and filters work.
+        Search by program basics and match dimensions — scoring, academics,
+        location, budget, competition, and culture. Personalized match scores
+        arrive in a later phase; priority chips adjust sort order today.
       </p>
 
       <div className="mt-8">
         <ProgramSearchForm initial={filters} />
       </div>
+
+      {filters.campus_vibe ? (
+        <p className="mt-4 text-sm text-text-mid">
+          Campus vibe preferences:{" "}
+          <span className="font-semibold text-emerald-300">
+            {filters.campus_vibe.replace(/,/g, ", ")}
+          </span>
+          {" — "}
+          full lifestyle matching arrives in a later phase; results emphasize culture fit today.
+        </p>
+      ) : null}
 
       {!result.ok ? (
         <div className="card-surface mt-8 border-red-400/30 p-6 text-sm text-red-300">

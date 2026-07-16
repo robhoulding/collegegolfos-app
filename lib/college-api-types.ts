@@ -37,6 +37,10 @@ export type ProgramSearchFilters = {
   state?: string;
   q?: string;
   athletic_data_tier?: string;
+  major?: string;
+  public_private?: string;
+  max_net_cost?: number;
+  match_priority?: string;
   limit?: number;
   offset?: number;
 };

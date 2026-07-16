@@ -12,6 +12,12 @@ export async function GET(request: NextRequest) {
     state: searchParams.get("state") ?? undefined,
     q: searchParams.get("q") ?? undefined,
     athletic_data_tier: searchParams.get("athletic_data_tier") ?? undefined,
+    major: searchParams.get("major") ?? undefined,
+    public_private: searchParams.get("public_private") ?? undefined,
+    max_net_cost: searchParams.get("max_net_cost")
+      ? Number(searchParams.get("max_net_cost"))
+      : undefined,
+    match_priority: searchParams.get("match_priority") ?? undefined,
     limit: searchParams.get("limit") ? Number(searchParams.get("limit")) : undefined,
     offset: searchParams.get("offset") ? Number(searchParams.get("offset")) : undefined,
   });

@@ -7,6 +7,12 @@ export const LINKS = {
   home: "/",
   coaches: "/coaches",
   programs: "/programs",
+  signIn: "/sign-in",
+  app: "/app",
+  appInbox: "/app/inbox",
+  appBoard: "/app/board",
+  appRoster: "/app/roster",
+  appSettings: "/app/settings",
   golfCoachOs: externalUrl(
     process.env.NEXT_PUBLIC_GOLFCOACHOS_URL,
     "https://www.golfcoachos.com",
